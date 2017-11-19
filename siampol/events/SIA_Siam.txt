@@ -1,0 +1,80 @@
+﻿add_namespace = sia_siam
+
+# Election Trigger event
+country_event = {
+	id = sia_siam.1
+	title = sia_siam.1.t
+	desc = sia_siam.1.desc
+	picture = GFX_report_event_japanese_siam_politicians
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = sia_siam.1.a 
+		ai_chance = {
+			factor = 100
+		}
+		SIA = {
+			remove_ideas = { sia_political_crisis }
+			add_ideas = { sia_elections_in_progress }
+			country_event = { days = 30 id = sia_siam.2 }
+		}
+		
+		hidden_effect = {
+			
+		}
+	}
+}
+
+# Electoral Outcome - introduce fascism
+country_event = {
+	id = sia_siam.2
+	title = sia_siam.2.t
+	desc = sia_siam.2.desc
+	picture = GFX_report_event_usa_election_generic
+	
+	is_triggered_only = yes
+
+	option = {
+		name = sia_siam.2.a 
+		ai_chance = {
+			factor = 100
+		}
+		SIA = {
+			remove_ideas = { sia_elections_in_progress }
+
+			set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
+				}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.08
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.06
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.6
+			}				
+		}
+
+		hidden_effect = {
+			SIA = {
+				create_country_leader = {
+				name = "Plaek Phibunsongkhram"
+				desc = "POLITICS_PLAEK_PHIBUNSONGKHRAM_DESC"
+				picture = "gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
+				expire = "1965.1.1"
+				ideology = fascism_ideology
+				traits = {
+					#
+				}
+			}
+			}
+
+		}
+	}
+}

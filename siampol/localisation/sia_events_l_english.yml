@@ -1,0 +1,7 @@
+﻿l_english:
+ sia_siam.1.t:0 "People's Assembly Dissolved"
+ sia_siam.1.desc:0 "Something, [SIA.GetLeader] has done something."
+ sia_siam.1.a:0 "Cool"
+ sia_siam.2.t:0 "Fascists gain power"
+ sia_siam.2.desc:0 "Something, [SIA.GetLeader] has done something."
+ sia_siam.2.a:0 "Well, that's one way of solving the crisis."

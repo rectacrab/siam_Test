@@ -1,0 +1,315 @@
+focus_tree = {
+	id = siam_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = SIA
+		}
+	}
+	
+	default = no
+	reset_on_civilwar = no
+
+	focus = {
+		id = sia_dissolve_Government
+		icon = GFX_goal_generic_forceful_treaty
+		x = 5
+		y = 0
+		cost = 1
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = SIA
+					SIA = {
+						has_civil_war = no
+					}
+				}
+				country_event = { id = sia_siam.1 }
+			}
+		}
+	}
+
+
+	focus = {
+		id = sia_restoration_monarchy
+		icon = GFX_focus_hun_elect_a_king
+		prerequisite = { focus = sia_dissolve_Government }
+		mutually_exclusive = { focus = sia_rapid_modernization }
+		x = 3
+		y = 1
+		cost = 10
+
+		available_if_capitulated = no
+		available = {
+			SIA = {
+				has_government = fascism
+				has_war = no
+			}
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = SIA
+					SIA = {
+						has_civil_war = no
+					}
+				}
+				country_event = { id = sia_siam.1 }
+			}
+		}
+	}
+
+	focus = {
+		id = sia_turn_west
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = sia_restoration_monarchy}
+		mutually_exclusive = { focus = sia_anti_colonialism }
+		x = 2
+		y = 2
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 500
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+
+
+	focus = {
+		id = sia_anti_colonialism
+		icon = GFX_focus_RAJ_clamp_down_on_corruption
+		prerequisite = { focus = sia_restoration_monarchy}
+		mutually_exclusive = { focus = sia_turn_west }
+		x = 4
+		y = 2
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 500
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+
+	focus = {
+		id = sia_join_allies
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = sia_turn_west}
+		x = 2
+		y = 4
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 500
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+
+	focus = {
+		id = sia_rapid_modernization
+		icon = GFX_focus_generic_strike_at_democracy1
+		prerequisite = { focus = sia_dissolve_Government }
+		mutually_exclusive = { focus = sia_restoration_monarchy }
+		x = 7
+		y = 1
+		cost = 10
+
+		available_if_capitulated = no
+
+		available = {
+			SIA = {
+				has_government = fascism
+				has_war = no
+			}
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = SIA
+				}
+				country_event = { id = sia_siam.2 }
+			}
+		}
+	}
+
+	focus = {
+		id = sia_12_cultural_mandates
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = sia_rapid_modernization }
+		x = 7
+		y = 2
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 500
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = sia_japan_delegation
+		icon = GFX_focus_AST_war_japan
+		prerequisite = { focus = sia_12_cultural_mandates  focus = sia_anti_colonialism}
+		mutually_exclusive = { focus = sia_china_delegation }
+		x = 6
+		y = 3
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 500
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = sia_japan_alliance
+		icon = GFX_goal_generic_attack_allies
+		prerequisite = { focus = sia_japan_delegation }
+		x = 7
+		y = 5
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 500
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = sia_china_delegation
+		icon = GFX_focus_generic_little_entente
+		prerequisite = { focus = sia_12_cultural_mandates focus = sia_anti_colonialism }
+		mutually_exclusive = { focus = sia_japan_delegation }
+		x = 4
+		y = 3
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 500
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = sia_china_alliance
+		icon = GFX_goal_anschluss
+		prerequisite = { focus = sia_china_delegation }
+		x = 3
+		y = 5
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 500
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+
+focus = {
+		id = sia_Indochina_claims
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		prerequisite = { focus = sia_china_delegation  focus = sia_japan_delegation }
+		x = 5
+		y = 4
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 500
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+focus = {
+		id = sia_yunnan
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = sia_Indochina_claims }
+		x = 5
+		y = 5
+		cost = 10
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 500
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+}
