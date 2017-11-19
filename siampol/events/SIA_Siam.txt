@@ -72,8 +72,7 @@ country_event = {
 					ideology = fascism
 					popularity = 0.6
 				}	
-			}
-		news_event = { id = sia_news.1 hours = 6 }		
+			}	
 		}
 	}
 }
@@ -87,16 +86,37 @@ country_event = {
 	
 	is_triggered_only = yes
 	
-	option = {
+	option = { #cannot afford the hunt, screw it.
 		name = sia_siam.3.a 
 		ai_chance = {
-			factor = 100
+			factor = 1
 		}
 		
 		
 		hidden_effect = {
 			SIA = {
-				remove_ideas = SIA_shraya_songsuradet
+				country_event = { hours = 6 id = sia_siam.4 }
+			}
+		}
+	}
+
+	option = { #hunt down songsurdet, get more rewards.
+		name = sia_siam.3.b 
+		ai_chance = {
+			factor = 100
+		}
+		
+		trigger = {
+			has_political_power > 25
+		}
+		
+
+		custom_effect_tooltip = sia_siam.3.b.tt
+
+		hidden_effect = {
+			SIA = {
+				add_political_power = -25
+				country_event = { hours = 6 id = sia_siam.5 }
 			}
 		}
 	}
@@ -116,13 +136,11 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
-		SIA = {
 
+		hidden_effect = {
+			country_event = { days = 2 id = sia_siam.6 }
 		}
 		
-		hidden_effect = {
-			
-		}
 	}
 }
 
@@ -140,12 +158,10 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
-		SIA = {
-
-		}
 		
 		hidden_effect = {
-			
+			set_country_flag = sia_captured_sonsurdet
+			country_event = { days = 2 id = sia_siam.6 }
 		}
 	}
 }
@@ -164,13 +180,15 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
-		SIA = {
-
+		if = {
+			limit = { has_country_flag = sia_captured_sonsurdet }
+			SIA = { add_ideas = sia_rivals_purged } 
+		}
+		if = {
+			limit = { NOT = { has_country_flag = sia_captured_sonsurdet } }
+			SIA = { add_ideas = sia_eliminated_rivals }
 		}
 		
-		hidden_effect = {
-			
-		}
 	}
 }
 

@@ -174,7 +174,6 @@ focus_tree = {
 		set_country_flag = SIA_songsuradet_purge
 			hidden_effect = {
 				country_event = sia_siam.3
-				
 			}
 		}
 	}
@@ -192,7 +191,8 @@ focus_tree = {
 
 
 		completion_reward = {			
-			set_cosmetic_tag = SIA_THI_fascism
+			set_cosmetic_tag = SIA_THAI
+			add_ideas = sia_cultural_uniformity
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -225,7 +225,7 @@ focus_tree = {
 			}
 
 			hidden_effect = {
-
+				news_event = { id = sia_news.1 hours = 6 }	
 			}
 
 		}

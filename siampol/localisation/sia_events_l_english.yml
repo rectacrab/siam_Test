@@ -7,6 +7,24 @@
  sia_siam.2.d:0 "Something, [SIA.GetLeader] has done something."
  sia_siam.2.a:0 "Well, that's one way of solving the crisis."
 
+ sia_siam.3.t:0 "Moving Preemptively against Rebellion"
+ sia_siam.3.d:0 "Something, [SIA.GetLeader] has done something."
+ sia_siam.3.a:0 "Start with the political class first"
+ sia_siam.3.b:0 "No one can escape."
+ sia_siam.3.b.tt:0 "Spend some of our political power to ensure no-one escapes their fate, making the Nation safer."
+
+ sia_siam.4.t:0 "Phraya Songsuradet has Escaped to French Indochina"
+ sia_siam.4.d:0 "Although many have been caught, Phraya Songsuradet managed to cross the border into French Indochina."
+ sia_siam.4.a:0 "We knew this was a risk."
+
+ sia_siam.5.t:0 "Phraya Songsuradet captured"
+ sia_siam.5.d:0 "None have escaped our net."
+ sia_siam.5.a:0 "Excellent work."
+
+ sia_siam.6.t:0 "Show Commence"
+ sia_siam.6.d:0 "A foregone conclusion."
+ sia_siam.6.a:0 "Thailand can only be stronger now."
+
  sia_news.1.a:0 "Admirable..."
  sia_news.1.b:0 "Interesting."
  sia_news.1.t:0 "[SIA.GetName] is born"

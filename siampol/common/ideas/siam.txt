@@ -344,7 +344,25 @@ ideas = {
 			}
 		}
 
-		#Purged rivals.
+		#Eliminated Rivals
+		sia_eliminated_rivals = {
+			
+			allowed = {
+				original_tag = SIA
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			picture = HUN_treaty_of_triannon
+			modifier = {
+				drift_defence_factor = 0.05
+			}
+		}
+
+		#Purged military
 		sia_rivals_purged = {
 			
 			allowed = {
@@ -359,7 +377,25 @@ ideas = {
 			picture = HUN_treaty_of_triannon
 			modifier = {
 				mobilization_laws_cost_factor = -0.1
-				unity_factor = 0.1
+				drift_defence_factor = 0.1
+			}
+		}
+
+		#Cultural Unformity
+		sia_cultural_uniformity = {
+			
+			allowed = {
+				original_tag = SIA
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			picture = HUN_treaty_of_triannon
+			modifier = {
+				unity_factor = 0.10
 			}
 		}
 
