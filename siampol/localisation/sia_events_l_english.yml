@@ -1,7 +1,13 @@
 ﻿l_english:
  sia_siam.1.t:0 "People's Assembly Dissolved"
- sia_siam.1.desc:0 "Something, [SIA.GetLeader] has done something."
+ sia_siam.1.d:0 "Something, [SIA.GetLeader] has done something."
  sia_siam.1.a:0 "Cool"
+ 
  sia_siam.2.t:0 "Fascists gain power"
- sia_siam.2.desc:0 "Something, [SIA.GetLeader] has done something."
+ sia_siam.2.d:0 "Something, [SIA.GetLeader] has done something."
  sia_siam.2.a:0 "Well, that's one way of solving the crisis."
+
+ sia_news.1.a:0 "Admirable..."
+ sia_news.1.b:0 "Interesting."
+ sia_news.1.t:0 "[SIA.GetName] is born"
+ sia_news.1.d:0 "Siam is no more.\n[SIA.GetLeader] announced this morning that Siam will now be known as '[SIA.GetName]', as a part of a modernization program [SIA.GetName] are calling the Cultural Mandates.\n\nThese mandates cover topics such as ethnicity, purpose and even appropriate clothing."   

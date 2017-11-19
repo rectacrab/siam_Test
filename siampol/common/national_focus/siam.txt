@@ -23,16 +23,21 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			if = {
-				limit = {
-					country_exists = SIA
-					SIA = {
-						has_civil_war = no
+			custom_effect_tooltip = sia_dissolve_Government_effect_tt
+			hidden_effect = {
+				if = {
+					limit = {
+						country_exists = SIA
+						SIA = {
+							has_civil_war = no
+						}
 					}
+					country_event = { id = sia_siam.1 }
 				}
-				country_event = { id = sia_siam.1 }
 			}
 		}
+
+
 	}
 
 
@@ -43,13 +48,16 @@ focus_tree = {
 		mutually_exclusive = { focus = sia_rapid_modernization }
 		x = 3
 		y = 1
-		cost = 10
+		cost = 1
 
 		available_if_capitulated = no
 		available = {
-			SIA = {
-				has_government = fascism
-				has_war = no
+			NOT = {
+				OR = {
+					has_idea = sia_elections_in_progress
+					has_idea = sia_political_crisis	
+				} 
+				 
 			}
 		}
 
@@ -73,9 +81,12 @@ focus_tree = {
 		mutually_exclusive = { focus = sia_anti_colonialism }
 		x = 2
 		y = 2
-		cost = 10
+		cost = 1
 
 		available_if_capitulated = no
+		available = {
+			has_war = no
+		}
 
 		completion_reward = {
 			army_experience = 500
@@ -97,9 +108,12 @@ focus_tree = {
 		mutually_exclusive = { focus = sia_turn_west }
 		x = 4
 		y = 2
-		cost = 10
+		cost = 1
 
 		available_if_capitulated = no
+		available = {
+			has_war = no
+		}
 
 		completion_reward = {
 			army_experience = 500
@@ -119,7 +133,7 @@ focus_tree = {
 		prerequisite = { focus = sia_turn_west}
 		x = 2
 		y = 4
-		cost = 10
+		cost = 1
 
 		available_if_capitulated = no
 
@@ -134,7 +148,7 @@ focus_tree = {
 		}
 	}
 
-
+	#Trigger songsuradet 'rebellion' 
 	focus = {
 		id = sia_rapid_modernization
 		icon = GFX_focus_generic_strike_at_democracy1
@@ -142,47 +156,83 @@ focus_tree = {
 		mutually_exclusive = { focus = sia_restoration_monarchy }
 		x = 7
 		y = 1
-		cost = 10
+		cost = 1
 
 		available_if_capitulated = no
-
 		available = {
-			SIA = {
-				has_government = fascism
-				has_war = no
+			NOT = {
+				OR = {
+					has_idea = sia_elections_in_progress
+					has_idea = sia_political_crisis	
+				} 
+				 
 			}
 		}
 
 		completion_reward = {
-			if = {
-				limit = {
-					country_exists = SIA
-				}
-				country_event = { id = sia_siam.2 }
+		custom_effect_tooltip = sia_rapid_modernization_effect_tt
+		set_country_flag = SIA_songsuradet_purge
+			hidden_effect = {
+				country_event = sia_siam.3
+				
 			}
 		}
 	}
 
+	#Embrace Fascism.
 	focus = {
 		id = sia_12_cultural_mandates
 		icon = GFX_goal_generic_propaganda
-		prerequisite = { focus = sia_rapid_modernization }
+		prerequisite = { focus = sia_rapid_modernization  }
 		x = 7
 		y = 2
-		cost = 10
+		cost = 1
 
 		available_if_capitulated = no
 
-		completion_reward = {
-			army_experience = 500
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 0.5
-				uses = 1
-				category = land_doctrine
+
+		completion_reward = {			
+			set_cosmetic_tag = SIA_THI_fascism
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
 			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			hidden_effect = {
+
+			}
+
 		}
+
+
 	}
+
 
 	focus = {
 		id = sia_japan_delegation
@@ -191,9 +241,13 @@ focus_tree = {
 		mutually_exclusive = { focus = sia_china_delegation }
 		x = 6
 		y = 3
-		cost = 10
+		cost = 1
 
 		available_if_capitulated = no
+
+		available = {
+			has_government = fascism
+		}
 
 		completion_reward = {
 			army_experience = 500
@@ -212,7 +266,7 @@ focus_tree = {
 		prerequisite = { focus = sia_japan_delegation }
 		x = 7
 		y = 5
-		cost = 10
+		cost = 1
 
 		available_if_capitulated = no
 
@@ -234,7 +288,7 @@ focus_tree = {
 		mutually_exclusive = { focus = sia_japan_delegation }
 		x = 4
 		y = 3
-		cost = 10
+		cost = 1
 
 		available_if_capitulated = no
 
@@ -255,7 +309,7 @@ focus_tree = {
 		prerequisite = { focus = sia_china_delegation }
 		x = 3
 		y = 5
-		cost = 10
+		cost = 1
 
 		available_if_capitulated = no
 
@@ -277,7 +331,7 @@ focus = {
 		prerequisite = { focus = sia_china_delegation  focus = sia_japan_delegation }
 		x = 5
 		y = 4
-		cost = 10
+		cost = 1
 
 		available_if_capitulated = no
 
@@ -298,7 +352,7 @@ focus = {
 		prerequisite = { focus = sia_Indochina_claims }
 		x = 5
 		y = 5
-		cost = 10
+		cost = 1
 
 		available_if_capitulated = no
 

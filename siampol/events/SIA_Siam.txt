@@ -17,7 +17,7 @@ country_event = {
 		SIA = {
 			remove_ideas = { sia_political_crisis }
 			add_ideas = { sia_elections_in_progress }
-			country_event = { days = 30 id = sia_siam.2 }
+			country_event = { days = 5 id = sia_siam.2 }
 		}
 		
 		hidden_effect = {
@@ -41,40 +41,267 @@ country_event = {
 			factor = 100
 		}
 		SIA = {
-			remove_ideas = { sia_elections_in_progress }
-
-			set_politics = {
-					ruling_party = fascism
-					elections_allowed = no
-				}
-			add_popularity = {
-				ideology = democratic
-				popularity = 0.08
-			}
-			add_popularity = {
-				ideology = communism
-				popularity = 0.06
-			}
-			add_popularity = {
-				ideology = fascism
-				popularity = 0.6
-			}				
+			remove_ideas = { sia_elections_in_progress }			
 		}
 
 		hidden_effect = {
 			SIA = {
-				create_country_leader = {
-				name = "Plaek Phibunsongkhram"
-				desc = "POLITICS_PLAEK_PHIBUNSONGKHRAM_DESC"
-				picture = "gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
-				expire = "1965.1.1"
-				ideology = fascism_ideology
-				traits = {
-					#
+				set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
 				}
+				create_country_leader = {
+					name = "Plaek Phibunsongkhram"
+					desc = "POLITICS_PLAEK_PHIBUNSONGKHRAM_DESC"
+					picture = "gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+							#
+						}
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.08
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.06
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.6
+				}	
 			}
-			}
-
+		news_event = { id = sia_news.1 hours = 6 }		
 		}
 	}
 }
+
+# Songsurdet rebellion
+country_event = {
+	id = sia_siam.3
+	title = sia_siam.3.t
+	desc = sia_siam.3.desc
+	picture = GFX_report_event_japanese_siam_politicians
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = sia_siam.3.a 
+		ai_chance = {
+			factor = 100
+		}
+		
+		
+		hidden_effect = {
+			SIA = {
+				remove_ideas = SIA_shraya_songsuradet
+			}
+		}
+	}
+}
+
+# Songsurdet escapes to cambodia
+country_event = {
+	id = sia_siam.4
+	title = sia_siam.4.t
+	desc = sia_siam.4.desc
+	picture = GFX_report_event_japanese_siam_politicians
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = sia_siam.4.a 
+		ai_chance = {
+			factor = 100
+		}
+		SIA = {
+
+		}
+		
+		hidden_effect = {
+			
+		}
+	}
+}
+
+# Songsurdet captured
+country_event = {
+	id = sia_siam.5
+	title = sia_siam.5.t
+	desc = sia_siam.5.desc
+	picture = GFX_report_event_japanese_siam_politicians
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = sia_siam.5.a 
+		ai_chance = {
+			factor = 100
+		}
+		SIA = {
+
+		}
+		
+		hidden_effect = {
+			
+		}
+	}
+}
+
+# Show trials
+country_event = {
+	id = sia_siam.6
+	title = sia_siam.6.t
+	desc = sia_siam.6.desc
+	picture = GFX_report_event_japanese_siam_politicians
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = sia_siam.6.a 
+		ai_chance = {
+			factor = 100
+		}
+		SIA = {
+
+		}
+		
+		hidden_effect = {
+			
+		}
+	}
+}
+
+# Thailand is born
+country_event = {
+	id = sia_siam.7
+	title = sia_siam.7.t
+	desc = sia_siam.7.desc
+	picture = GFX_report_event_japanese_siam_politicians
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = sia_siam.7.a 
+		ai_chance = {
+			factor = 100
+		}
+		SIA = {
+
+		}
+		
+		hidden_effect = {
+			
+		}
+	}
+}
+
+# Reaching out to allies
+country_event = {
+	id = sia_siam.8
+	title = sia_siam.8.t
+	desc = sia_siam.8.desc
+	picture = GFX_report_event_japanese_siam_politicians
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = sia_siam.8.a 
+		ai_chance = {
+			factor = 100
+		}
+		SIA = {
+
+		}
+		
+		hidden_effect = {
+			
+		}
+	}
+}
+
+# Allies Accept
+country_event = {
+	id = sia_siam.9
+	title = sia_siam.9.t
+	desc = sia_siam.9.desc
+	picture = GFX_report_event_japanese_siam_politicians
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = sia_siam.9.a 
+		ai_chance = {
+			factor = 100
+		}
+		SIA = {
+
+		}
+		
+		hidden_effect = {
+			
+		}
+	}
+}
+
+# Allies decline
+country_event = {
+	id = sia_siam.10
+	title = sia_siam.10.t
+	desc = sia_siam.10.desc
+	picture = GFX_report_event_japanese_siam_politicians
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = sia_siam.10.a 
+		ai_chance = {
+			factor = 100
+		}
+		SIA = {
+
+		}
+		
+		hidden_effect = {
+			
+		}
+	}
+}
+
+# Reaching out to Japan
+
+# Japan Accept
+
+
+# Japan Decline
+
+
+
+# Reaching out to china
+
+
+# china accept
+
+
+# china decline
+
+
+
+# calls for king to return
+
+
+
+# king assassinated
+
+
+
+# The king returns, no civil war
+
+
+
+# the king returns, civil war ensues.
+
+
+# A new king arises, civil war begins.

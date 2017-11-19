@@ -1,0 +1,31 @@
+
+state={
+	id=744
+	name="STATE_744"
+	manpower = 3500300
+	
+	state_category = rural
+	
+	resources={
+		steel = 5
+		tungsten = 2
+	}
+
+	history={
+		owner = SIA
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+			air_base = 2
+		}
+		victory_points = {
+			1488 1 
+		}
+
+		add_core_of = SIA
+	}
+
+	provinces={
+		1488 7559 7353 12345 7531 7492 7312 1253 7675 10371 1990 4496 8045
+	}
+}

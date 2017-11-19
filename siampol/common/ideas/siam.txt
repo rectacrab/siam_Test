@@ -69,6 +69,24 @@ ideas = {
 			}
 		}
 
+		SIA_shraya_songsuradet = {
+
+			picture = generic_army_asia_3
+			
+			allowed = {
+				original_tag = SIA
+			}
+			
+			traits = { army_chief_drill_1 }
+			available = {
+				NOT = { has_country_flag = SIA_songsuradet_purge }
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
 	}
 
 	air_chief = {
@@ -286,6 +304,7 @@ ideas = {
 	
 
 	country = {
+		#election event needs to happen.
 		sia_political_crisis = {
 			
 			allowed = {
@@ -305,6 +324,7 @@ ideas = {
 			}
 		}
 
+		#elections in progress.
 		sia_elections_in_progress = {
 			
 			allowed = {
@@ -321,6 +341,25 @@ ideas = {
 				trade_laws_cost_factor = 0.25
 				mobilization_laws_cost_factor = 0.25
 				unity_factor = -0.2
+			}
+		}
+
+		#Purged rivals.
+		sia_rivals_purged = {
+			
+			allowed = {
+				original_tag = SIA
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			picture = HUN_treaty_of_triannon
+			modifier = {
+				mobilization_laws_cost_factor = -0.1
+				unity_factor = 0.1
 			}
 		}
 

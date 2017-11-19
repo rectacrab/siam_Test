@@ -1,0 +1,28 @@
+
+state={
+	id=743
+	name="STATE_743"
+	manpower = 2650500
+	
+	state_category = rural
+	
+	resources={
+		rubber=5
+	}
+
+	history={
+		owner = SIA
+		buildings = {
+			infrastructure = 3
+			arms_factory = 1
+		}
+		victory_points = {
+			10438 1 
+		}
+		add_core_of = SIA
+	}
+
+	provinces={
+		10384 1357 4582 12388 10438 12264 10293 12373 7601 12431 10425 12360 7516 4511 1535 1548 12417 12402
+	}
+}

@@ -1,0 +1,38 @@
+﻿add_namespace = sia_news
+
+# Thailand now exists.
+news_event = {
+	id = sia_news.1
+	title = sia_news.1.t
+	desc = sia_news.1.d
+	picture = GFX_news_event_generic_sign_treaty3
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = sia_news.1.a
+		trigger = {
+			OR	 = {
+				tag = JAP
+				tag = SOV
+				tag = PRC
+			}
+
+		}
+	}
+	option = {
+		name = sia_news.1.b
+		trigger = {
+			NOT = 
+			{
+				tag = JAP
+				tag = SOV
+				tag = PRC
+			}
+		}
+	}
+
+}
+
