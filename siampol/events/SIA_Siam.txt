@@ -4,7 +4,7 @@
 country_event = {
 	id = sia_siam.1
 	title = sia_siam.1.t
-	desc = sia_siam.1.desc
+	desc = sia_siam.1.d
 	picture = GFX_report_event_japanese_siam_politicians
 	
 	is_triggered_only = yes
@@ -15,13 +15,15 @@ country_event = {
 			factor = 100
 		}
 		SIA = {
-			remove_ideas = { sia_political_crisis }
-			add_ideas = { sia_elections_in_progress }
+			swap_ideas = {
+				add_idea = sia_elections_in_progress
+				remove_idea = sia_political_crisis
+			}
 			country_event = { days = 5 id = sia_siam.2 }
 		}
 		
 		hidden_effect = {
-			
+				
 		}
 	}
 }
@@ -30,7 +32,7 @@ country_event = {
 country_event = {
 	id = sia_siam.2
 	title = sia_siam.2.t
-	desc = sia_siam.2.desc
+	desc = sia_siam.2.d
 	picture = GFX_report_event_usa_election_generic
 	
 	is_triggered_only = yes
@@ -41,25 +43,25 @@ country_event = {
 			factor = 100
 		}
 		SIA = {
-			remove_ideas = { sia_elections_in_progress }			
+			remove_ideas = { sia_elections_in_progress }		
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+			}	
+			create_country_leader = {
+				name = "Plaek Phibunsongkhram"
+				desc = "POLITICS_PLAEK_PHIBUNSONGKHRAM_DESC"
+				picture = "gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
+				expire = "1965.1.1"
+				ideology = fascism_ideology
+				traits = {
+						#
+					}
+			}
 		}
 
 		hidden_effect = {
 			SIA = {
-				set_politics = {
-					ruling_party = fascism
-					elections_allowed = no
-				}
-				create_country_leader = {
-					name = "Plaek Phibunsongkhram"
-					desc = "POLITICS_PLAEK_PHIBUNSONGKHRAM_DESC"
-					picture = "gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
-					expire = "1965.1.1"
-					ideology = fascism_ideology
-					traits = {
-							#
-						}
-				}
 				add_popularity = {
 					ideology = democratic
 					popularity = 0.08
@@ -81,7 +83,7 @@ country_event = {
 country_event = {
 	id = sia_siam.3
 	title = sia_siam.3.t
-	desc = sia_siam.3.desc
+	desc = sia_siam.3.d
 	picture = GFX_report_event_japanese_siam_politicians
 	
 	is_triggered_only = yes
@@ -126,7 +128,7 @@ country_event = {
 country_event = {
 	id = sia_siam.4
 	title = sia_siam.4.t
-	desc = sia_siam.4.desc
+	desc = sia_siam.4.d
 	picture = GFX_report_event_japanese_siam_politicians
 	
 	is_triggered_only = yes
@@ -148,7 +150,7 @@ country_event = {
 country_event = {
 	id = sia_siam.5
 	title = sia_siam.5.t
-	desc = sia_siam.5.desc
+	desc = sia_siam.5.d
 	picture = GFX_report_event_japanese_siam_politicians
 	
 	is_triggered_only = yes
@@ -170,7 +172,7 @@ country_event = {
 country_event = {
 	id = sia_siam.6
 	title = sia_siam.6.t
-	desc = sia_siam.6.desc
+	desc = sia_siam.6.d
 	picture = GFX_report_event_japanese_siam_politicians
 	
 	is_triggered_only = yes
@@ -192,35 +194,50 @@ country_event = {
 	}
 }
 
-# Thailand is born
+# Which royal do we approach
 country_event = {
 	id = sia_siam.7
 	title = sia_siam.7.t
-	desc = sia_siam.7.desc
+	desc = sia_siam.7.d
 	picture = GFX_report_event_japanese_siam_politicians
 	
 	is_triggered_only = yes
 	
-	option = {
+	option = { #attempt peaceful democratic transition
 		name = sia_siam.7.a 
 		ai_chance = {
-			factor = 100
+			factor = 50
 		}
-		SIA = {
 
-		}
+		custom_effect_tooltip = sia_siam.7.a.tt
 		
 		hidden_effect = {
-			
+			random_list = {
+				75 = { SIA = { country_event = { days = 10 id = sia_siam.8 } }}
+				25 = { SIA = { country_event = { days = 10 id = sia_siam.10 } }}
+			}
+		}
+	}
+
+	option = { #bowradet rebellion
+		name = sia_siam.7.b
+		ai_chance = {
+			factor = 50
+		}
+
+		custom_effect_tooltip = sia_siam.7.b.tt
+		
+		hidden_effect = {
+			SIA = { country_event = { days = 10 id = sia_siam.9 } }
 		}
 	}
 }
 
-# Reaching out to allies
+# Peaceful return of Rama VIII
 country_event = {
 	id = sia_siam.8
 	title = sia_siam.8.t
-	desc = sia_siam.8.desc
+	desc = sia_siam.8.d
 	picture = GFX_report_event_japanese_siam_politicians
 	
 	is_triggered_only = yes
@@ -231,20 +248,43 @@ country_event = {
 			factor = 100
 		}
 		SIA = {
-
+			set_cosmetic_tag = SIA_THAI
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = yes
+			}	
+			create_country_leader = {
+				name = "Pridi Banomyong"
+				desc = "POLITICS_PLAEK_PHIBUNSONGKHRAM_DESC"
+				picture = "gfx/leaders/Asia/Portrait_Asia_Generic_1.dds"
+				expire = "1965.1.1"
+				ideology = socialism
+				traits = {
+						#
+					}
+			}
 		}
 		
 		hidden_effect = {
-			
+			SIA = {
+				add_popularity = {
+					ideology = fascism
+					popularity = -0.2
+				}	
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.45
+				}
+			}
 		}
 	}
 }
 
-# Allies Accept
+# second Boworadet rebellion.
 country_event = {
 	id = sia_siam.9
 	title = sia_siam.9.t
-	desc = sia_siam.9.desc
+	desc = sia_siam.9.d
 	picture = GFX_report_event_japanese_siam_politicians
 	
 	is_triggered_only = yes
@@ -255,20 +295,53 @@ country_event = {
 			factor = 100
 		}
 		SIA = {
-
-		}
-		
-		hidden_effect = {
-			
-		}
+			set_cosmetic_tag = SIA_THAI
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = yes
+			}	
+			create_country_leader = {
+				name = "King Bowowradet"
+				desc = "POLITICS_PLAEK_PHIBUNSONGKHRAM_DESC"
+				picture = "gfx/leaders/Asia/Portrait_Asia_Generic_2.dds"
+				expire = "1965.1.1"
+				ideology = despotism
+				traits = {
+						#
+					}
+			}
+			start_civil_war = {
+				ideology = fascism
+				size = 0.3
+			}
+			hidden_effect = {
+				random_other_country = {
+					limit = {
+						original_tag = SIA
+						has_government = fascism
+					}
+					kill_country_leader = yes
+					create_country_leader = {
+						name = "Plaek Phibunsongkhram"
+						desc = "POLITICS_PLAEK_PHIBUNSONGKHRAM_DESC"
+						picture = "gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
+						expire = "1965.1.1"
+						ideology = fascism_ideology
+						traits = {
+							}
+						}
+					}
+				}
+				#news_event = { hours = 3 id = news.220 }
+			}
 	}
 }
 
-# Allies decline
+# War for Democracy
 country_event = {
 	id = sia_siam.10
 	title = sia_siam.10.t
-	desc = sia_siam.10.desc
+	desc = sia_siam.10.d
 	picture = GFX_report_event_japanese_siam_politicians
 	
 	is_triggered_only = yes
@@ -279,11 +352,45 @@ country_event = {
 			factor = 100
 		}
 		SIA = {
-
-		}
-		
-		hidden_effect = {
-			
+			set_cosmetic_tag = SIA_THAI
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = yes
+			}	
+			create_country_leader = {
+				name = "Pridi Banomyong"
+				desc = "POLITICS_PLAEK_PHIBUNSONGKHRAM_DESC"
+				picture = "gfx/leaders/Asia/Portrait_Asia_Generic_2.dds"
+				expire = "1965.1.1"
+				ideology = socialism
+				traits = {
+						#
+					}
+			}
+			start_civil_war = {
+				ideology = fascism
+				size = 0.3
+			}
+			hidden_effect = {
+				random_other_country = {
+					limit = {
+						original_tag = SIA
+						has_government = fascism
+					}
+					kill_country_leader = yes
+					create_country_leader = {
+						name = "Plaek Phibunsongkhram"
+						desc = "POLITICS_PLAEK_PHIBUNSONGKHRAM_DESC"
+						picture = "gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
+						expire = "1965.1.1"
+						ideology = fascism_ideology
+						traits = {
+							}
+						}
+					}
+				}
+				#news_event = { hours = 3 id = news.220 }
+			}
 		}
 	}
 }

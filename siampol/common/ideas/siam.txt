@@ -318,8 +318,7 @@ ideas = {
 			removal_cost = -1
 			picture = FRA_scw_intervention_republicans_focus
 			modifier = {
-				trade_laws_cost_factor = 0.2
-				mobilization_laws_cost_factor = 0.2
+				political_power_cost = 0.2
 				unity_factor = -0.3
 			}
 		}
@@ -338,9 +337,8 @@ ideas = {
 			removal_cost = -1
 			picture = HUN_treaty_of_triannon
 			modifier = {
-				trade_laws_cost_factor = 0.25
-				mobilization_laws_cost_factor = 0.25
-				unity_factor = -0.2
+				political_power_cost = 0.5
+				unity_factor = -0.25
 			}
 		}
 
@@ -358,7 +356,7 @@ ideas = {
 			removal_cost = -1
 			picture = HUN_treaty_of_triannon
 			modifier = {
-				drift_defence_factor = 0.05
+				unity_factor = 0.05
 			}
 		}
 
@@ -376,8 +374,8 @@ ideas = {
 			removal_cost = -1
 			picture = HUN_treaty_of_triannon
 			modifier = {
-				mobilization_laws_cost_factor = -0.1
-				drift_defence_factor = 0.1
+				drift_defence_factor = 0.05
+				unity_factor = 0.1
 			}
 		}
 
@@ -393,9 +391,10 @@ ideas = {
 			}
 
 			removal_cost = -1
-			picture = HUN_treaty_of_triannon
+			picture = generic_manpower_bonus
 			modifier = {
-				unity_factor = 0.10
+				conscription_factor = 0.02
+				production_speed_buildings_factor = 0.10
 			}
 		}
 

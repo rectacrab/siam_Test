@@ -21,9 +21,28 @@
  sia_siam.5.d:0 "None have escaped our net."
  sia_siam.5.a:0 "Excellent work."
 
- sia_siam.6.t:0 "Show Commence"
+ sia_siam.6.t:0 "Show Trials"
  sia_siam.6.d:0 "A foregone conclusion."
  sia_siam.6.a:0 "Thailand can only be stronger now."
+
+ sia_siam.7.t:0 "A Royal Choice"
+ sia_siam.7.d:0 "King Rama VIII is the rightful King of [SIA.GetName], but he is barely more than a child. Since the Royal family's loss of Absolute power, he has spent his life in Switzerland.\nHis age and upbringing would ensure his position is only symbolic, enacting the will of the people.\n\nThere is however another choice.\n\nPrince Bowowradet is a former military commander - an experienced and steady hand in these turbulent times. His failed rebellion of 1932 sought the restoration of Absolute Royal power, and since then he has lived in exile in French Indochina.\n\nThe future of [SIA.GetName] rests upon this decision. Who will lead us in these dark times?"
+ sia_siam.7.a:0 "King Rama VIII will bring us Democracy and Peace."
+ sia_siam.7.a.tt:0 "There is a chance for §YCivil War§! or a §YPeaceful Transition§! to Democracy."
+ sia_siam.7.b:0 "Prince Bowowradet shall take back what is rightfully his."
+ sia_siam.7.b.tt:0 "The return of Absolute Monarchy will definitely result in a §YCivil War§!"
+
+ sia_siam.8.t:0 "The Return of King Rama VIII"
+ sia_siam.8.d:0 "King Rama VIII has returned to take his rightful place on the throne of [SIA.GetName]. The powerful combination of tradition and thinly veiled threats from the Western colonial powers has resulted in the resignation of [SIA.GetLeader].\n\nThe King has reaffirmed his commitment to a peaceful transition into Democracy."
+ sia_siam.8.a:0 "Long live the King!"
+
+ sia_siam.9.t:0 "The Second Bowowradet Rebellion"
+ sia_siam.9.d:0 "Returning from exile in French Indochina, Prince Bowowradet has announced his intention to restore the throne of [SIA.GetName].\n\nIt remains to be seen if this second rebellion will meet the same fate as the first."
+ sia_siam.9.a:0 "Blood will flow in the Streets"
+
+ sia_siam.10.t:0 "Assassination attempt on King Rama VIII"
+ sia_siam.10.d:0 "Hours before returning to [SIA.GetName], an attempt has been made on the life of King Rama VIII.\n\nThis has sent the clear message that the Fascist government has no intention of surrending power.\n\nThe struggle has just begun."
+ sia_siam.10.a:0 "The path to freedom is paved with blood."
 
  sia_news.1.a:0 "Admirable..."
  sia_news.1.b:0 "Interesting."

@@ -22,7 +22,12 @@ focus_tree = {
 
 		available_if_capitulated = no
 
+		available = {
+			has_civil_war = no
+		}
+
 		completion_reward = {
+			add_political_power = 100
 			custom_effect_tooltip = sia_dissolve_Government_effect_tt
 			hidden_effect = {
 				if = {
@@ -38,114 +43,6 @@ focus_tree = {
 		}
 
 
-	}
-
-
-	focus = {
-		id = sia_restoration_monarchy
-		icon = GFX_focus_hun_elect_a_king
-		prerequisite = { focus = sia_dissolve_Government }
-		mutually_exclusive = { focus = sia_rapid_modernization }
-		x = 3
-		y = 1
-		cost = 1
-
-		available_if_capitulated = no
-		available = {
-			NOT = {
-				OR = {
-					has_idea = sia_elections_in_progress
-					has_idea = sia_political_crisis	
-				} 
-				 
-			}
-		}
-
-		completion_reward = {
-			if = {
-				limit = {
-					country_exists = SIA
-					SIA = {
-						has_civil_war = no
-					}
-				}
-				country_event = { id = sia_siam.1 }
-			}
-		}
-	}
-
-	focus = {
-		id = sia_turn_west
-		icon = GFX_goal_generic_intelligence_exchange
-		prerequisite = { focus = sia_restoration_monarchy}
-		mutually_exclusive = { focus = sia_anti_colonialism }
-		x = 2
-		y = 2
-		cost = 1
-
-		available_if_capitulated = no
-		available = {
-			has_war = no
-		}
-
-		completion_reward = {
-			army_experience = 500
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 0.5
-				uses = 1
-				category = land_doctrine
-			}
-		}
-	}
-
-
-
-	focus = {
-		id = sia_anti_colonialism
-		icon = GFX_focus_RAJ_clamp_down_on_corruption
-		prerequisite = { focus = sia_restoration_monarchy}
-		mutually_exclusive = { focus = sia_turn_west }
-		x = 4
-		y = 2
-		cost = 1
-
-		available_if_capitulated = no
-		available = {
-			has_war = no
-		}
-
-		completion_reward = {
-			army_experience = 500
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 0.5
-				uses = 1
-				category = land_doctrine
-			}
-		}
-	}
-
-
-	focus = {
-		id = sia_join_allies
-		icon = GFX_goal_support_democracy
-		prerequisite = { focus = sia_turn_west}
-		x = 2
-		y = 4
-		cost = 1
-
-		available_if_capitulated = no
-
-		completion_reward = {
-			army_experience = 500
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 0.5
-				uses = 1
-				category = land_doctrine
-			}
-		}
 	}
 
 	#Trigger songsuradet 'rebellion' 
@@ -233,7 +130,120 @@ focus_tree = {
 
 	}
 
+	#get rid of fascism
+	focus = {
+		id = sia_restoration_monarchy
+		icon = GFX_focus_hun_elect_a_king
+		prerequisite = { focus = sia_dissolve_Government }
+		mutually_exclusive = { focus = sia_rapid_modernization }
+		x = 3
+		y = 1
+		cost = 1
 
+		available_if_capitulated = no
+		available = {
+			NOT = {
+				OR = {
+					has_idea = sia_elections_in_progress
+					has_idea = sia_political_crisis	
+				} 
+				 
+			}
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					country_exists = SIA
+					SIA = {
+						has_civil_war = no
+					}
+				}
+				country_event = { id = sia_siam.7 }
+			}
+		}
+	}
+
+	#embrace the UK & france.
+	focus = {
+		id = sia_turn_west
+		icon = GFX_goal_generic_intelligence_exchange
+		prerequisite = { focus = sia_restoration_monarchy}
+		mutually_exclusive = { focus = sia_anti_colonialism }
+		x = 2
+		y = 2
+		cost = 1
+
+		available_if_capitulated = no
+		available = {
+			has_war = no
+			has_government = democratic
+		}
+
+		completion_reward = {
+			army_experience = 500
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	#Absolute monarchy - pick a fight with UK & france.
+	focus = {
+		id = sia_anti_colonialism
+		icon = GFX_focus_RAJ_clamp_down_on_corruption
+		prerequisite = { focus = sia_restoration_monarchy}
+		mutually_exclusive = { focus = sia_turn_west }
+		x = 4
+		y = 2
+		cost = 1
+
+		available_if_capitulated = no
+		available = {
+			has_war = no
+			NOT = 	{
+				has_government = fascism
+				has_government = democratic
+			}
+		}
+
+		completion_reward = {
+			army_experience = 500
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+
+	focus = {
+		id = sia_join_allies
+		icon = GFX_goal_support_democracy
+		prerequisite = { focus = sia_turn_west}
+		x = 2
+		y = 4
+		cost = 1
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 500
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	#turn to japan
 	focus = {
 		id = sia_japan_delegation
 		icon = GFX_focus_AST_war_japan
