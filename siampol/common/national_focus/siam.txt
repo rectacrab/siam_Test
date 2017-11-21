@@ -58,11 +58,7 @@ focus_tree = {
 		available_if_capitulated = no
 		available = {
 			NOT = {
-				OR = {
-					has_idea = sia_elections_in_progress
-					has_idea = sia_political_crisis	
-				} 
-				 
+				has_idea = sia_political_crisis				 
 			}
 		}
 
@@ -86,48 +82,14 @@ focus_tree = {
 
 		available_if_capitulated = no
 
-
 		completion_reward = {			
 			set_cosmetic_tag = SIA_THAI
 			add_ideas = sia_cultural_uniformity
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 1
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = arms_factory
-						size > 0
-						include_locked = yes
-					}
-				}
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-			}
-
 			hidden_effect = {
 				news_event = { id = sia_news.1 hours = 6 }	
 			}
 
 		}
-
-
 	}
 
 	#get rid of fascism
@@ -141,17 +103,17 @@ focus_tree = {
 		cost = 1
 
 		available_if_capitulated = no
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+
 		available = {
 			NOT = {
-				OR = {
-					has_idea = sia_elections_in_progress
-					has_idea = sia_political_crisis	
-				} 
-				 
+				has_idea = sia_political_crisis
 			}
 		}
 
 		completion_reward = {
+			custom_effect_tooltip = sia_restoration_monarchy_effect_tt
 			if = {
 				limit = {
 					country_exists = SIA
@@ -159,7 +121,14 @@ focus_tree = {
 						has_civil_war = no
 					}
 				}
-				country_event = { id = sia_siam.7 }
+
+				hidden_effect = {
+				swap_ideas ={  
+					add_idea = sia_fighting_fascism
+					remove_idea = sia_insecure_power
+				}
+					country_event = { id = sia_siam.7 }
+				}
 			}
 		}
 	}
@@ -181,12 +150,11 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			army_experience = 500
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 0.5
-				uses = 1
-				category = land_doctrine
+			FRA = { add_opinion_modifier = { target = ROOT modifier = SIA_western_embrace } }
+			ENG = { add_opinion_modifier = { target = ROOT modifier = SIA_western_embrace } }
+			hidden_effect = {
+				add_opinion_modifier = { target = ENG modifier = SIA_western_embrace }
+				add_opinion_modifier = { target = FRA modifier = SIA_western_embrace }
 			}
 		}
 	}
@@ -200,7 +168,7 @@ focus_tree = {
 		x = 4
 		y = 2
 		cost = 1
-
+		
 		available_if_capitulated = no
 		available = {
 			has_war = no
@@ -211,35 +179,8 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			army_experience = 500
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 0.5
-				uses = 1
-				category = land_doctrine
-			}
-		}
-	}
-
-
-	focus = {
-		id = sia_join_allies
-		icon = GFX_goal_support_democracy
-		prerequisite = { focus = sia_turn_west}
-		x = 2
-		y = 4
-		cost = 1
-
-		available_if_capitulated = no
-
-		completion_reward = {
-			army_experience = 500
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 0.5
-				uses = 1
-				category = land_doctrine
-			}
+			FRA = { add_opinion_modifier = { target = ROOT modifier = SIA_anti_colonial } }
+			ENG = { add_opinion_modifier = { target = ROOT modifier = SIA_anti_colonial } }
 		}
 	}
 
@@ -260,13 +201,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			army_experience = 500
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 0.5
-				uses = 1
-				category = land_doctrine
-			}
+			JAP = { add_opinion_modifier = { target = ROOT modifier = SIA_delegation_to_japan } }
 		}
 	}
 
@@ -275,7 +210,7 @@ focus_tree = {
 		icon = GFX_goal_generic_attack_allies
 		prerequisite = { focus = sia_japan_delegation }
 		x = 7
-		y = 5
+		y = 4
 		cost = 1
 
 		available_if_capitulated = no
@@ -291,6 +226,7 @@ focus_tree = {
 		}
 	}
 
+	#look to china
 	focus = {
 		id = sia_china_delegation
 		icon = GFX_focus_generic_little_entente
@@ -303,13 +239,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			army_experience = 500
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 0.5
-				uses = 1
-				category = land_doctrine
-			}
+			JAP = { add_opinion_modifier = { target = ROOT modifier = SIA_delegation_to_japan } }
 		}
 	}
 
@@ -318,7 +248,7 @@ focus_tree = {
 		icon = GFX_goal_anschluss
 		prerequisite = { focus = sia_china_delegation }
 		x = 3
-		y = 5
+		y = 4
 		cost = 1
 
 		available_if_capitulated = no
@@ -334,8 +264,8 @@ focus_tree = {
 		}
 	}
 
-
-focus = {
+	#press your claim on laos & cambodia.
+	focus = {
 		id = sia_Indochina_claims
 		icon = GFX_goal_generic_occupy_states_ongoing_war
 		prerequisite = { focus = sia_china_delegation  focus = sia_japan_delegation }
@@ -356,11 +286,34 @@ focus = {
 		}
 	}
 
-focus = {
+	#get claim on Yunnan
+	focus = {
 		id = sia_yunnan
 		icon = GFX_goal_generic_position_armies
-		prerequisite = { focus = sia_Indochina_claims }
-		x = 5
+		prerequisite = { focus = sia_china_delegation  focus = sia_japan_delegation }
+		x = 4
+		y = 5
+		cost = 1
+
+		available_if_capitulated = no
+
+		completion_reward = {
+			army_experience = 500
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+
+	#tell british to turn over malaya
+	focus = {
+		id = sia_return_malaya
+		icon = GFX_goal_generic_position_armies
+		prerequisite = { focus = sia_china_delegation  focus = sia_japan_delegation }
+		x = 6
 		y = 5
 		cost = 1
 

@@ -14,16 +14,11 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
-		SIA = {
-			swap_ideas = {
-				add_idea = sia_elections_in_progress
-				remove_idea = sia_political_crisis
-			}
-			country_event = { days = 5 id = sia_siam.2 }
-		}
 		
 		hidden_effect = {
-				
+			SIA = {
+				country_event = { days = 5 id = sia_siam.2 }
+			}	
 		}
 	}
 }
@@ -43,7 +38,10 @@ country_event = {
 			factor = 100
 		}
 		SIA = {
-			remove_ideas = { sia_elections_in_progress }		
+			swap_ideas ={
+				remove_idea = sia_political_crisis
+				add_idea = sia_insecure_power
+			}
 			set_politics = {
 				ruling_party = fascism
 				elections_allowed = no
@@ -72,7 +70,7 @@ country_event = {
 				}
 				add_popularity = {
 					ideology = fascism
-					popularity = 0.6
+					popularity = 0.5
 				}	
 			}	
 		}
@@ -248,7 +246,7 @@ country_event = {
 			factor = 100
 		}
 		SIA = {
-			set_cosmetic_tag = SIA_THAI
+			set_cosmetic_tag = SIA_SIAM
 			set_politics = {
 				ruling_party = democratic
 				elections_allowed = yes
@@ -295,7 +293,7 @@ country_event = {
 			factor = 100
 		}
 		SIA = {
-			set_cosmetic_tag = SIA_THAI
+			set_cosmetic_tag = SIA_SIAM
 			set_politics = {
 				ruling_party = neutrality
 				elections_allowed = yes
@@ -312,7 +310,7 @@ country_event = {
 			}
 			start_civil_war = {
 				ideology = fascism
-				size = 0.3
+				size = 0.5
 			}
 			hidden_effect = {
 				random_other_country = {
@@ -352,7 +350,7 @@ country_event = {
 			factor = 100
 		}
 		SIA = {
-			set_cosmetic_tag = SIA_THAI
+			set_cosmetic_tag = SIA_SIAM
 			set_politics = {
 				ruling_party = democratic
 				elections_allowed = yes

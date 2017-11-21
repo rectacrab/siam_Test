@@ -316,15 +316,15 @@ ideas = {
 			}
 
 			removal_cost = -1
-			picture = FRA_scw_intervention_republicans_focus
+			picture = generic_morale_bonus
 			modifier = {
 				political_power_cost = 0.2
 				unity_factor = -0.3
 			}
 		}
 
-		#elections in progress.
-		sia_elections_in_progress = {
+		#fresh from elections, insecure government.
+		sia_insecure_power = {
 			
 			allowed = {
 				original_tag = SIA
@@ -335,10 +335,30 @@ ideas = {
 			}
 
 			removal_cost = -1
-			picture = HUN_treaty_of_triannon
+			picture = generic_fascism_drift_bonus
 			modifier = {
-				political_power_cost = 0.5
-				unity_factor = -0.25
+				unity_factor = -0.1
+			}
+		}
+
+		#fighting fascism
+		sia_fighting_fascism = {
+			
+			allowed = {
+				original_tag = SIA
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = fascism	
+				}
+			}
+
+			removal_cost = -1
+			picture = generic_fascism_banned
+			modifier = {
+				unity_factor = 0.1
+				drift_defence_factor = 0.05
 			}
 		}
 
@@ -350,11 +370,11 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				always = yes
+				has_government = fascism
 			}
 
 			removal_cost = -1
-			picture = HUN_treaty_of_triannon
+			picture = generic_intel_bonus
 			modifier = {
 				unity_factor = 0.05
 			}
@@ -368,11 +388,11 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				always = yes
+				has_government = fascism
 			}
 
 			removal_cost = -1
-			picture = HUN_treaty_of_triannon
+			picture = generic_intel_bonus
 			modifier = {
 				drift_defence_factor = 0.05
 				unity_factor = 0.1
@@ -387,7 +407,7 @@ ideas = {
 			}
 
 			allowed_civil_war = {
-				always = yes
+				has_government = fascism
 			}
 
 			removal_cost = -1
