@@ -272,17 +272,38 @@ focus_tree = {
 		x = 5
 		y = 4
 		cost = 1
-
+		will_lead_to_war_with = FRA
+		
 		available_if_capitulated = no
+		available = {
+			is_puppet = no
+			FRA = {
+				controls_state = 670
+				controls_state = 671
+				controls_state = 286
+				controls_state = 741
+			}
+			NOT = {
+				has_war_with = FRA
+			}
+			NOT = {
+				is_in_faction_with = FRA
+			}
+		}
+
+		bypass = {
+			FRA = {
+				NOT = {
+					controls_state = 670
+					controls_state = 671
+					controls_state = 286
+					controls_state = 741
+				}
+			}
+		}	
 
 		completion_reward = {
-			army_experience = 500
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 0.5
-				uses = 1
-				category = land_doctrine
-			}
+			FRA = { country_event = { id = sia_siam.11 hours = 6 }  } 
 		}
 	}
 

@@ -95,28 +95,11 @@ country_event = {
 		
 		hidden_effect = {
 			SIA = {
-				country_event = { hours = 6 id = sia_siam.4 }
-			}
-		}
-	}
-
-	option = { #hunt down songsurdet, get more rewards.
-		name = sia_siam.3.b 
-		ai_chance = {
-			factor = 100
-		}
-		
-		trigger = {
-			has_political_power > 25
-		}
-		
-
-		custom_effect_tooltip = sia_siam.3.b.tt
-
-		hidden_effect = {
-			SIA = {
-				add_political_power = -25
-				country_event = { hours = 6 id = sia_siam.5 }
+				random_list = {
+					50 = { country_event = { hours = 6 id = sia_siam.4 } }
+					50 = { country_event = { hours = 6 id = sia_siam.5 } }
+				}
+				
 			}
 		}
 	}
@@ -180,15 +163,13 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
-		if = {
-			limit = { has_country_flag = sia_captured_sonsurdet }
-			SIA = { add_ideas = sia_rivals_purged } 
+		SIA = {
+			swap_ideas = {
+				add_idea = sia_rivals_purged 
+				remove_idea = sia_insecure_power
+			}
+			
 		}
-		if = {
-			limit = { NOT = { has_country_flag = sia_captured_sonsurdet } }
-			SIA = { add_ideas = sia_eliminated_rivals }
-		}
-		
 	}
 }
 
@@ -271,7 +252,7 @@ country_event = {
 				}	
 				add_popularity = {
 					ideology = democratic
-					popularity = 0.45
+					popularity = 0.6
 				}
 			}
 		}
@@ -294,10 +275,6 @@ country_event = {
 		}
 		SIA = {
 			set_cosmetic_tag = SIA_SIAM
-			set_politics = {
-				ruling_party = neutrality
-				elections_allowed = yes
-			}	
 			create_country_leader = {
 				name = "King Bowowradet"
 				desc = "POLITICS_PLAEK_PHIBUNSONGKHRAM_DESC"
@@ -308,11 +285,19 @@ country_event = {
 						#
 					}
 			}
+
 			start_civil_war = {
 				ideology = fascism
 				size = 0.5
 			}
+
 			hidden_effect = {
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = yes
+				}	
+				set_party_name = { ideology = neutrality long_name = SIA_royalist_party name = SIA_royalist_party }
+
 				random_other_country = {
 					limit = {
 						original_tag = SIA
@@ -326,12 +311,11 @@ country_event = {
 						expire = "1965.1.1"
 						ideology = fascism_ideology
 						traits = {
-							}
 						}
 					}
 				}
-				#news_event = { hours = 3 id = news.220 }
 			}
+		}	
 	}
 }
 
@@ -384,14 +368,110 @@ country_event = {
 						ideology = fascism_ideology
 						traits = {
 							}
-						}
 					}
 				}
-				#news_event = { hours = 3 id = news.220 }
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.5
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.35
+				}
 			}
 		}
 	}
 }
+
+
+# Demand Indochina
+country_event = {
+	id = sia_siam.11
+	title = sia_siam.11.t
+	desc = sia_siam.11.d
+	picture = GFX_report_event_japanese_siam_politicians
+	
+	is_triggered_only = yes
+	
+	option = { #Accept demands
+		name = sia_siam.11.a 
+		ai_chance = {
+			factor = 50
+		}
+		
+		SIA = {
+			country_event = { id = sia_siam.12 hours = 6}
+		}
+	}
+
+	option = { #decline demands.
+		name = sia_siam.11.b 
+		ai_chance = {
+			factor = 50
+		}
+		
+		SIA = {
+			country_event = { id = sia_siam.13 hours = 6}
+		}
+	}
+}
+
+# French Acceptance of return
+country_event = {
+	id = sia_siam.12
+	title = sia_siam.12.t
+	desc = sia_siam.12.d
+	picture = GFX_report_event_japanese_siam_politicians
+	
+	is_triggered_only = yes
+	
+	option = { #Accept demands
+		name = sia_siam.12.a 
+		ai_chance = {
+			factor = 1
+		}
+		
+		SIA = {
+			670 = { add_core_of = SIA }
+			SIA = { transfer_state = 670 }
+			671 = { add_core_of = SIA }
+			SIA = { transfer_state = 671 }
+			286 = { add_core_of = SIA }
+			SIA = { transfer_state = 286 }
+			741 = { add_core_of = SIA }
+			SIA = { transfer_state = 741 }
+		}
+		
+	}
+
+}
+
+# French deny return
+country_event = {
+	id = sia_siam.13
+	title = sia_siam.13.t
+	desc = sia_siam.13.d
+	picture = GFX_report_event_japanese_siam_politicians
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = sia_siam.13.a 
+		ai_chance = {
+			factor = 1
+		}
+		
+		SIA = {
+			create_wargoal = {
+				type = take_state_focus
+				target = FRA
+				generator = { 670 671 286 741 }
+			}
+			
+		}
+	}
+}
+
 
 # Reaching out to Japan
 
@@ -409,22 +489,3 @@ country_event = {
 
 
 # china decline
-
-
-
-# calls for king to return
-
-
-
-# king assassinated
-
-
-
-# The king returns, no civil war
-
-
-
-# the king returns, civil war ensues.
-
-
-# A new king arises, civil war begins.
