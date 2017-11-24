@@ -1,4 +1,4 @@
-name="The Italy of Asia"
+﻿name="The Italy of Asia"
 path="mod/siampol/"
 tags={
 	"Alternative History"

@@ -66,7 +66,7 @@ focus_tree = {
 		custom_effect_tooltip = sia_rapid_modernization_effect_tt
 		set_country_flag = SIA_songsuradet_purge
 			hidden_effect = {
-				country_event = sia_siam.3
+				country_event = { id = sia_siam.3 hours = 3 } 
 			}
 		}
 	}
@@ -181,6 +181,7 @@ focus_tree = {
 		completion_reward = {
 			FRA = { add_opinion_modifier = { target = ROOT modifier = SIA_anti_colonial } }
 			ENG = { add_opinion_modifier = { target = ROOT modifier = SIA_anti_colonial } }
+			SIA = { add_ideas = sia_fervent_nationalism }
 		}
 	}
 
@@ -205,6 +206,7 @@ focus_tree = {
 		}
 	}
 
+	#propose alliance, which can backfire.
 	focus = {
 		id = sia_japan_alliance
 		icon = GFX_goal_generic_attack_allies
@@ -216,13 +218,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			army_experience = 500
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 0.5
-				uses = 1
-				category = land_doctrine
-			}
+			country_event = {id = sia_siam.14 hours = 2}
 		}
 	}
 
@@ -239,7 +235,7 @@ focus_tree = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			JAP = { add_opinion_modifier = { target = ROOT modifier = SIA_delegation_to_japan } }
+			CHI = { add_opinion_modifier = { target = ROOT modifier = SIA_delegation_to_china } }
 		}
 	}
 
@@ -279,8 +275,6 @@ focus_tree = {
 			is_puppet = no
 			FRA = {
 				controls_state = 670
-				controls_state = 671
-				controls_state = 286
 				controls_state = 741
 			}
 			NOT = {
@@ -295,8 +289,6 @@ focus_tree = {
 			FRA = {
 				NOT = {
 					controls_state = 670
-					controls_state = 671
-					controls_state = 286
 					controls_state = 741
 				}
 			}
@@ -311,42 +303,41 @@ focus_tree = {
 	focus = {
 		id = sia_yunnan
 		icon = GFX_goal_generic_position_armies
-		prerequisite = { focus = sia_china_delegation  focus = sia_japan_delegation }
-		x = 4
+		prerequisite = { focus = sia_Indochina_claims }
+		x = 5
 		y = 5
 		cost = 1
 
 		available_if_capitulated = no
 
-		completion_reward = {
-			army_experience = 500
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 0.5
-				uses = 1
-				category = land_doctrine
+		available = {
+			AND = {
+				OR = {
+					controls_state = 670
+					controls_state = 671
+				}
+				NOT = {
+					325 = {
+						owner = {
+							is_in_faction_with = SIA
+						}
+					}
+				}
 			}
 		}
-	}
-
-	#tell british to turn over malaya
-	focus = {
-		id = sia_return_malaya
-		icon = GFX_goal_generic_position_armies
-		prerequisite = { focus = sia_china_delegation  focus = sia_japan_delegation }
-		x = 6
-		y = 5
-		cost = 1
-
-		available_if_capitulated = no
 
 		completion_reward = {
-			army_experience = 500
-			add_tech_bonus = {
-				name = land_doc_bonus
-				bonus = 0.5
-				uses = 1
-				category = land_doctrine
+			325 = {
+				controller = {
+					SIA = {
+						create_wargoal = {
+							type = take_state_focus
+							target = prev
+							generator = { 325 }
+						}
+					}
+
+				}
 			}
 		}
 	}
