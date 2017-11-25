@@ -5,7 +5,7 @@ country_event = {
 	id = sia_siam.1
 	title = sia_siam.1.t
 	desc = sia_siam.1.d
-	picture = GFX_report_event_japanese_siam_politicians
+	picture = GFX_report_event_worker_protests
 	
 	is_triggered_only = yes
 	
@@ -82,69 +82,54 @@ country_event = {
 	id = sia_siam.3
 	title = sia_siam.3.t
 	desc = sia_siam.3.d
-	picture = GFX_report_event_japanese_siam_politicians
+	picture = GFX_report_event_chinese_soldiers_01
 	
 	is_triggered_only = yes
 	
-	option = { #cannot afford the hunt, screw it.
+	option = {
 		name = sia_siam.3.a 
 		ai_chance = {
 			factor = 1
 		}
 		
-		
 		hidden_effect = {
 			SIA = {
-				random_list = {
-					50 = { country_event = { hours = 6 id = sia_siam.4 } }
-					50 = { country_event = { hours = 6 id = sia_siam.5 } }
-				}
-				
+				country_event = { days = 3 id = sia_siam.6 }
 			}
 		}
 	}
 }
 
-# Songsurdet escapes to cambodia
+# China Accept alliance
 country_event = {
 	id = sia_siam.4
 	title = sia_siam.4.t
 	desc = sia_siam.4.d
-	picture = GFX_report_event_japanese_siam_politicians
+	picture = GFX_report_event_chinese_officers
 	
 	is_triggered_only = yes
 	
-	option = {
+	option = { 
 		name = sia_siam.4.a 
 		ai_chance = {
-			factor = 100
+			factor = 1
 		}
-
-		hidden_effect = {
-			country_event = { days = 2 id = sia_siam.6 }
-		}
-		
 	}
 }
 
-# Songsurdet captured
+# China Decline Alliance
 country_event = {
 	id = sia_siam.5
 	title = sia_siam.5.t
 	desc = sia_siam.5.d
-	picture = GFX_report_event_japanese_siam_politicians
+	picture = GFX_report_event_chinese_officers
 	
 	is_triggered_only = yes
 	
-	option = {
+	option = { 
 		name = sia_siam.5.a 
 		ai_chance = {
-			factor = 100
-		}
-		
-		hidden_effect = {
-			set_country_flag = sia_captured_sonsurdet
-			country_event = { days = 2 id = sia_siam.6 }
+			factor = 1
 		}
 	}
 }
@@ -154,7 +139,7 @@ country_event = {
 	id = sia_siam.6
 	title = sia_siam.6.t
 	desc = sia_siam.6.d
-	picture = GFX_report_event_japanese_siam_politicians
+	picture = GFX_report_event_soviet_purge_trial
 	
 	is_triggered_only = yes
 	
@@ -168,7 +153,12 @@ country_event = {
 				add_idea = sia_rivals_purged 
 				remove_idea = sia_insecure_power
 			}
-			
+			hidden_effect = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = -0.2
+				}
+			}
 		}
 	}
 }
@@ -178,7 +168,7 @@ country_event = {
 	id = sia_siam.7
 	title = sia_siam.7.t
 	desc = sia_siam.7.d
-	picture = GFX_report_event_japanese_siam_politicians
+	picture = GFX_report_event_royal_parade
 	
 	is_triggered_only = yes
 	
@@ -217,7 +207,7 @@ country_event = {
 	id = sia_siam.8
 	title = sia_siam.8.t
 	desc = sia_siam.8.d
-	picture = GFX_report_event_japanese_siam_politicians
+	picture = GFX_report_event_royal_parade
 	
 	is_triggered_only = yes
 	
@@ -264,7 +254,7 @@ country_event = {
 	id = sia_siam.9
 	title = sia_siam.9.t
 	desc = sia_siam.9.d
-	picture = GFX_report_event_japanese_siam_politicians
+	picture = GFX_report_event_japan_army_mountainside
 	
 	is_triggered_only = yes
 	
@@ -285,7 +275,7 @@ country_event = {
 						#
 					}
 			}
-
+			add_ideas = sia_fighting_fascism
 			start_civil_war = {
 				ideology = fascism
 				size = 0.5
@@ -324,7 +314,7 @@ country_event = {
 	id = sia_siam.10
 	title = sia_siam.10.t
 	desc = sia_siam.10.d
-	picture = GFX_report_event_japanese_siam_politicians
+	picture = GFX_report_event_fascist_gathering
 	
 	is_triggered_only = yes
 	
@@ -389,7 +379,7 @@ country_event = {
 	id = sia_siam.11
 	title = sia_siam.11.t
 	desc = sia_siam.11.d
-	picture = GFX_report_event_japanese_siam_politicians
+	picture = GFX_report_event_japan_army_mountainside
 	
 	is_triggered_only = yes
 	
@@ -436,7 +426,7 @@ country_event = {
 	id = sia_siam.12
 	title = sia_siam.12.t
 	desc = sia_siam.12.d
-	picture = GFX_report_event_japanese_siam_politicians
+	picture = GFX_report_event_japanese_soldiers_02
 	
 	is_triggered_only = yes
 	
@@ -462,7 +452,7 @@ country_event = {
 	id = sia_siam.13
 	title = sia_siam.13.t
 	desc = sia_siam.13.d
-	picture = GFX_report_event_japanese_chinese_surrender
+	picture = GFX_report_event_japanese_soldiers_03
 	
 	is_triggered_only = yes
 	
@@ -590,6 +580,71 @@ country_event = {
 		name = sia_siam.16.a 
 		ai_chance = {
 			factor = 1
+		}
+	}
+}
+
+# Chinese event from Siam, requesting alliance.
+country_event = {
+	id = sia_siam.17
+	title = sia_siam.17.t
+	desc = sia_siam.17.d
+	picture = GFX_report_event_chinese_officers
+	
+	is_triggered_only = yes
+	
+	option = { 
+		name = sia_siam.17.a 
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 99
+				AND ={
+					has_war = yes
+					is_in_faction_with = PRC
+					NOT = { is_in_faction_with = SIA }	
+				}
+			}
+		}
+		if = {
+			limit = {
+				CHI = { is_in_faction = yes }
+			}
+			CHI = { add_to_faction = SIA }
+		}
+		if = { 
+			limit = {
+				CHI = { is_in_faction = no }
+			}
+			CHI = { 
+				create_faction = chinese_united_front
+				set_global_flag = CHI_unite
+				add_to_faction = SIA 
+			}
+		}
+		SIA = {
+			hidden_effect = {
+				country_event = {id = sia_siam.4 }
+			}
+		}
+	}
+	option = { 
+		name = sia_siam.17.b 
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 1
+				AND ={
+					has_war = yes
+					is_in_faction_with = PRC
+					NOT = { is_in_faction_with = SIA }	
+				}
+			}
+		}
+		SIA = {
+			hidden_effect = {
+				country_event = {id = sia_siam.5 }
+			}
 		}
 	}
 }
