@@ -65,4 +65,4 @@
  sia_news.1.a:0 "Admirable..."
  sia_news.1.b:0 "Interesting."
  sia_news.1.t:0 "[SIA.GetNameDef] is born"
- sia_news.1.d:0 "Siam no longer exists.\nOn the insistence of [SIA.GetLeader], the country will now be known as [SIA.GetNameDef].\n\nThis change has been announced as the first of a series of Cultural Mandates from the central government of [SIA.GetName], aimed at modernizing the nation. The mandates are wildly ambitious, covering topics such as ethnicity, a citizen's duties to the Nation and even defining appropriate clothing in public.\n\nThe move no doubt serves to further cement Fascist power within [SIA.GetNameDef]."   
+ sia_news.1.d:0 "Siam no longer exists.\nOn the insistence of [SIA.GetLeader], the country will now be known as [SIA.GetNameDef].\n\nThis change has been announced as the first of a series of Cultural Mandates from the central government of [SIA.GetNameDef], aimed at modernizing the nation. The mandates are wildly ambitious, covering topics such as ethnicity, a citizen's duties to the Nation and even defining appropriate clothing in public.\n\nThe move no doubt serves to further cement Fascist power within [SIA.GetNameDef]."   
